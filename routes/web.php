@@ -17,11 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route for sending emails
 
-Route::get('send-email', function(){
+Route::get('mail-sending', function(){
     $user = new stdClass();
-    $user->name = "Lucas";
-    $user->email = "elleventestelucas@gmail.com";
+    $user->name = 'Lucas Damacena';
+    $user->email = 'elleventestelucas@gmail.com';
 
-    Mail::send(new \App\Mail\Mailer($user));
+    \App\Jobs\Mailer::dispatch($user)->delay(now());
 });
