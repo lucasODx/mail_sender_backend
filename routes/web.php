@@ -17,12 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route for sending emails
 
-Route::get('mail-sending', function(){
-    $user = new stdClass();
-    $user->name = 'Lucas Damacena';
-    $user->email = 'elleventestelucas@gmail.com';
 
-    \App\Jobs\Mailer::dispatch($user)->delay(now());
-});

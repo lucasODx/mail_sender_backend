@@ -20,11 +20,8 @@ class Mailer implements ShouldQueue
         $this->user = $user;
     }
 
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
+    
+    // Envia e-mail com base no objeto vindo da rota add
     public function handle()
     {
         \Illuminate\Support\Facades\Mail::send(new \App\Mail\Mailer($this->user));

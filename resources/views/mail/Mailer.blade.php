@@ -1,1 +1,4 @@
-<h1>Ola mundo</h1>
+<h3>Email de: {{$user->name}}</h3>
+<p>
+    {{$user->subject}}
+</p>

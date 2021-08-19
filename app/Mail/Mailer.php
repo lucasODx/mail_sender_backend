@@ -23,15 +23,13 @@ class Mailer extends Mailable
         $this->user = $user;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
+    //Monta o e-mail sobrescrevendo a view Mailer do blade
     public function build()
     {
-        $this->subject('Envio de email');
+        $this->subject($this->user->title);
         $this->to($this->user->email, $this->user->name);
-        return $this->view('mail.Mailer');
+        return $this->view('mail.Mailer', [
+            'user' => $this->user
+        ]);
     }
 }
