@@ -14,6 +14,6 @@ class MailController extends Controller
         $user->email = $req->email;
         $user->title = $req->title;
         $user->subject = $req->subject;
-        \App\Jobs\Mailer::dispatch($user)->delay(now());
+        \App\Jobs\Mailer::dispatch($user)->delay(now()->seconds('5'));
     }
 }
